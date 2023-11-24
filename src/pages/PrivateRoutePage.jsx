@@ -1,10 +1,10 @@
 import React from "react";
-import { useUserContext } from "../store/context/user_context";
 import { Navigate } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const PrivateRoutePage = ({ children }) => {
-	const { myUser, loginWithRedirect } = useUserContext();
-	if (!myUser) {
+	const { user } = useAuth0();
+	if (!user) {
 		return <Navigate to="/" />;
 	}
 	return children;

@@ -52,6 +52,7 @@ const SingleProductPage = () => {
 	useEffect(() => {
 		fetchSingleProductAction(`${url}${id}`);
 		// console.log(product);
+		// eslint-disable-next-line
 	}, [id]);
 
 	useEffect(() => {
@@ -60,6 +61,7 @@ const SingleProductPage = () => {
 				navigate("/");
 			}, 3000);
 		}
+		// eslint-disable-next-line
 	}, [error]);
 
 	if (loading) {

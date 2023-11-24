@@ -4,6 +4,7 @@ import { useProductsContext } from "../store/context/products_context";
 import Loading from "./Loading";
 import Error from "./Error";
 import Product from "./Product";
+import { Link } from "react-router-dom";
 
 const Wrapper = styled.section`
 	background: var(--clr-grey-10);
@@ -47,6 +48,9 @@ const FeaturedProducts = () => {
 					return <Product key={product.id} {...product} />;
 				})}
 			</div>
+			<Link to="/products" className="btn">
+				all products
+			</Link>
 		</Wrapper>
 	);
 };
