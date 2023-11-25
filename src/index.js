@@ -15,8 +15,8 @@ import { UserProvider } from "./store/context/user_context";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<Auth0Provider
-		domain="dev-xrumr0vk2njmvwqu.us.auth0.com"
-		clientId="kYAzhVLBFbTKGtsLVeydxPjNxnjjE05Y"
+		domain={process.env.REACT_APP_AUTH_DOMAIN}
+		clientId={process.env.REACT_APP_AUTH_CLIENT_ID}
 		authorizationParams={{ redirect_uri: window.location.origin }}
 		cacheLocation="localstorage"
 	>

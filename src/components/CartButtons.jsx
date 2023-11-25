@@ -62,7 +62,7 @@ const Wrapper = styled.div`
 
 const CartButtons = () => {
 	const { closeSidebarAction } = useProductsContext();
-	const { totalItems } = useCartContext();
+	const { totalItems, clearCartAction } = useCartContext();
 	const { isAuthenticated, loginWithRedirect, logout, isLoading, myUser } = useUserContext();
 
 	return (
@@ -75,7 +75,14 @@ const CartButtons = () => {
 				</span>
 			</Link>
 			{myUser ? (
-				<button type="button" className="auth-btn" onClick={() => logout({ returnTo: window.location.origin })}>
+				<button
+					type="button"
+					className="auth-btn"
+					onClick={() => {
+						clearCartAction();
+						logout({ returnTo: window.location.origin });
+					}}
+				>
 					logout
 					<FaUserMinus />
 				</button>
